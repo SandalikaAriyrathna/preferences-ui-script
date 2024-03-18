@@ -9,13 +9,15 @@
 </head>
 <body>
 
-<!-- <button id="openModalButton">Click here to select a brand</button> -->
-<button id="openModalButton" style="display: none;">Click here to select a brand</button>
+<button id="openModalButton">Click</button>
+<!-- <button id="openModalButton" style="display: none;">Click</button> -->
 
 <!-- The Modal -->
 <div id="modal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <!-- <span class="close">&times;</span> -->
+    <p style="color: brown;">Please provide your details to get valuable shopping experience...!!!</p>
+
     <h2>User Demographic Information</h2>
     <ul class="modal-brands">
       <li>
@@ -46,8 +48,40 @@
         </select>
       </li>
     </ul>
+    <div class="brands-section">
+      <h3>Select Your Favorite Brands from Here</h3>
+      <div class="checkbox-group">
+        <label class="category-title">Electronics</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Samsung"> Samsung</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Samsung"> Nokia</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Samsung"> MI</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Samsung"> Apple</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Sony"> Sony</label>
+  
+        <label class="category-title">Computers</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Dell"> Dell</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Apple"> Mac</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Apple"> Asus</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Apple"> Acer</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Apple"> MSI</label>
+  
+        <label class="category-title">Apparel</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Nike"> Nike</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Adidas"> Adidas</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Adidas"> Boss</label>
+  
+        <label class="category-title">Accessories</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Rolex"> Rolex</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Gucci"> Gucci</label>
+  
+        <label class="category-title">Sport</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Under Armour"> Under Armour</label>
+        <label class="checkbox-label"><input type="checkbox" name="brands" value="Reebok"> Reebok</label>
+
+      </div>
+    </div>
+    <br>
     <button id="submit">Submit</button>
-    <p style="color: brown;">Please provide your details to get valuable shopping experience...!!!</p>
   </div>
 </div>
 
