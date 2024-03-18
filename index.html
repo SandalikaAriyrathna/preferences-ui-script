@@ -3,29 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brand Preference</title>
+<title>User Demographic Information</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="modal-style.css">
 </head>
 <body>
 
-<!-- Trigger/Open The Modal -->
-
-  <button id="openModalButton" style="display: none;">Click here to select a brand</button>
-
+<!-- <button id="openModalButton">Click here to select a brand</button> -->
+<button id="openModalButton" style="display: none;">Click here to select a brand</button>
 
 <!-- The Modal -->
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h2>Which brand do you prefer?</h2>
+    <h2>User Demographic Information</h2>
     <ul class="modal-brands">
-      <li><img src="images/apple.png" alt="Apple" class="brand" id="apple"></li>
-      <li><img src="images/xiomi.png" alt="Xiaomi" class="brand" id="xiaomi"></li>
-      <li><img src="images/samsung.png" alt="Samsung" class="brand" id="samsung"></li>
-      <li><img src="images/nokia.png" alt="Nokia" class="brand" id="nokia"></li>
-      <li><img src="images/vivo.png" alt="Vivo" class="brand" id="vivo"></li>
+      <li>
+        <label for="age">Birth of Date</label>
+        <input type="date" id="age" name="age" required>
+      </li>
+      <li>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </li>
+      <li>
+        <label for="location">Select Province:</label>
+        <select id="location" name="location" required>
+          <option value="">---Select---</option>
+          <option value="Western">Western</option>
+          <option value="Central">Central</option>
+          <option value="Southern">Southern</option>
+          <option value="Uva">Uva</option>
+          <option value="Sabaragamuwa">Sabaragamuwa</option>
+          <option value="North Western">North Western</option>
+          <option value="North Central">North Central</option>
+          <option value="Northern">Northern</option>
+          <option value="Eastern">Eastern</option>
+        </select>
+      </li>
     </ul>
-    <p>Select a brand to get more user experience...!!!</p>
+    <button id="submit">Submit</button>
+    <p style="color: brown;">Please provide your details to get valuable shopping experience...!!!</p>
   </div>
 </div>
 
