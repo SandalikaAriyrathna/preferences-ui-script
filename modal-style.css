@@ -1,4 +1,4 @@
-body {
+#my-modal-container body {
   font-family: Arial, sans-serif;
   background-color: #eef2f7;
   display: flex;
@@ -8,7 +8,7 @@ body {
   margin: 0;
 }
 
-.modal {
+#my-modal-container .modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -20,34 +20,34 @@ body {
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+#my-modal-container .modal-content {
   background-color: #fefefe;
-  margin: 10% auto; /* Reduced top margin for better centering */
+  margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 50%; /* Reduced width for a smaller modal */
-  max-width: 500px; /* Ensures modal is not too wide on larger screens */
+  width: 50%;
+  max-width: 500px;
 }
 
-.modal-brands {
+#my-modal-container .modal-brands {
   list-style-type: none;
   padding: 0;
 }
 
-.modal-brands li {
+#my-modal-container .modal-brands li {
   margin-bottom: 10px;
 }
 
-.modal-brands label {
+#my-modal-container .modal-brands label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.modal-brands input,
-.modal-brands select,
-#submit {
+#my-modal-container .modal-brands input,
+#my-modal-container .modal-brands select,
+#my-modal-container #submit {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -55,7 +55,7 @@ body {
   border: 1px solid #ced4da;
 }
 
-#submit {
+#my-modal-container #submit {
   background-color: #007bff;
   color: white;
   border: none;
@@ -63,76 +63,71 @@ body {
   transition: background-color 0.3s;
 }
 
-#submit:hover {
+#my-modal-container #submit:hover {
   background-color: #0056b3;
 }
 
 @media (max-width: 600px) {
-  .modal-content {
+  #my-modal-container .modal-content {
     width: 90%; /* Slightly increased for mobile to use more screen space */
     margin: 10% auto;
   }
 }
 
-.category-title {
+
+#my-modal-container .category-title,
+#my-modal-container .checkbox-label {
   font-size: 18px;
   color: #040404;
   margin-top: 15px;
   margin-bottom: 5px;
   display: block;
-  margin-bottom: 10px;
   font-weight: bold;
-
 }
 
-.checkbox-label {
+#my-modal-container .checkbox-label {
   display: flex;
   align-items: center;
-  margin-bottom: 5px; /* Reduced bottom margin */
-  border: 1px solid #ccc; /* Keeps the border as is */
-  padding: 5px; /* Reduced padding for a smaller box */
-  border-radius: 4px; /* Optional: less rounded corners */
-  background-color: #f9f9f9; /* Keeps the background color */
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
   cursor: pointer;
 }
 
-.checkbox-label input[type="checkbox"] {
-  margin-right: 10px; /* Space between checkbox and image */
+#my-modal-container .checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
 }
 
-.images {
-  width: 50px; /* Reduced width for smaller images */
-  height: 25px; /* Reduced height for smaller images */
-  object-fit: contain; /* Keeps image aspect ratio without distortion */
-  margin-left: auto; /* Keeps the image aligned to the right */
+#my-modal-container .images {
+  width: 50px;
+  height: 25px;
+  object-fit: contain;
+  margin-left: auto;
 }
 
-/* Optional: Adds a hover effect for labels */
-.checkbox-label:hover {
+#my-modal-container .checkbox-label:hover {
   background-color: #e8e8e8;
 }
 
-
-.container {
+#my-modal-container .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.category {
+#my-modal-container .category {
   border: 1px solid #ccc;
   padding: 10px;
 }
 
-.checkbox-group {
+#my-modal-container .checkbox-group {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
 }
 
-.category-title {
+#my-modal-container .category-title {
   margin-bottom: 15px;
 }
-
-
-
