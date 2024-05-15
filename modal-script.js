@@ -24,7 +24,7 @@ function showModalIfNeeded(userDemographics) {
 window.onload = async function() {
   // Retrieve the user_id from session storage
   const user_id = sessionStorage.getItem('user_id');
-  // const user_id = 11;
+  console.log(user_id)
 
   if (user_id) {
     const userDemographics = await fetchUserDemographics(user_id);
