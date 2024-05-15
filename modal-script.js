@@ -21,17 +21,24 @@ function showModalIfNeeded(userDemographics) {
   }
 }
 
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 window.onload = async function() {
-  // Retrieve the user_id from session storage
-  const user_id = sessionStorage.getItem('user_id');
-  console.log(user_id)
+  // Retrieve the user_id from the cookie
+  const user_id = getCookie('user_id');
+  console.log(user_id);
 
   if (user_id) {
     const userDemographics = await fetchUserDemographics(user_id);
     showModalIfNeeded(userDemographics);
   } else {
-    console.error('No user_id found in session storage. User might not be logged in.');
-    // Handle case where user is not logged in or user_id is not stored in session storage
+    console.error('No user_id found in cookies. User might not be logged in.');
+    // Handle case where user is not logged in or user_id is not stored in cookies
   }
 };
 
@@ -57,8 +64,7 @@ document.getElementById('submit').addEventListener('click', async function() {
   const location = document.getElementById('location').value;
 
   // Retrieve the user_id from session storage
-  const user_id = sessionStorage.getItem('user_id');
-  // const user_id = 11;
+  const user_id = getCookie('user_id'); 
 
   // Collect selected brands
   const brands = [];
