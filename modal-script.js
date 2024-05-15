@@ -17,7 +17,7 @@ function showModalIfNeeded(userDemographics) {
   // Check if any of the required userDemographics fields are null
   if (userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
     // If any of the demographic data is null, show the modal
-    modal.style.display = "block";
+    document.getElementById('modal').style.display = "block";
   }
 }
 
@@ -44,17 +44,16 @@ window.onload = async function() {
 
 // Add event listener for the 'openModalButton'
 document.getElementById("openModalButton").onclick = function() {
-  modal.style.display = "block";
+  document.getElementById('modal').style.display = "block";
 };
 
 // Get the brand elements and attach click event listeners
 document.querySelectorAll('.brand').forEach(function(brand) {
   brand.addEventListener('click', function() {
-    modal.style.display = "none";
+    document.getElementById('modal').style.display = "none";
     console.log("Brand selected: " + this.alt);
   });
-}
-);
+});
 
 document.getElementById('submit').addEventListener('click', async function() {
   const birthDate = new Date(document.getElementById('age').value);
@@ -63,8 +62,8 @@ document.getElementById('submit').addEventListener('click', async function() {
   const gender = document.getElementById('gender').value;
   const location = document.getElementById('location').value;
 
-  // Retrieve the user_id from session storage
-  const user_id = getCookie('user_id'); 
+  // Retrieve the user_id from the cookie
+  const user_id = getCookie('user_id');
 
   // Collect selected brands
   const brands = [];
@@ -76,7 +75,7 @@ document.getElementById('submit').addEventListener('click', async function() {
       // Assuming you have a separate endpoint or logic to handle brands
       await updateUserDemographics(user_id, age, gender, location, brands);
   } else {
-      console.error('No user_id found in session storage. Cannot update user demographics.');
+      console.error('No user_id found in cookies. Cannot update user demographics.');
   }
 });
 
