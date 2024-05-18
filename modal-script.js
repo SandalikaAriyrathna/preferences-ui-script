@@ -62,7 +62,9 @@ document.querySelectorAll('.brand').forEach(function(brand) {
   });
 });
 
-document.getElementById('submit').addEventListener('click', async function() {
+document.getElementById('demographicForm').addEventListener('submit', async function(event) {
+  event.preventDefault(); // Prevent the form from submitting the traditional way
+
   const birthDate = new Date(document.getElementById('age').value);
   const today = new Date();
   const age = today.getFullYear() - birthDate.getFullYear();
@@ -70,12 +72,12 @@ document.getElementById('submit').addEventListener('click', async function() {
   const location = document.getElementById('location').value;
 
   // Retrieve the user_id from the cookie
-  const user_id = '<?php echo $user_id; ?>';
+  const user_id = getCookie('user_id');
 
   // Collect selected brands
   const brands = [];
   document.querySelectorAll('input[name="brands"]:checked').forEach((checkbox) => {
-      brands.push(checkbox.value);
+    brands.push(checkbox.value);
   });
 
   if (user_id) {
@@ -91,7 +93,7 @@ async function updateUserDemographics(user_id, age, gender, location, brands) {
     age,
     gender,
     location,
-    brands  // Include the brands array in the data sent to the backend
+    brands // Include the brands array in the data sent to the backend
   };
 
   try {
