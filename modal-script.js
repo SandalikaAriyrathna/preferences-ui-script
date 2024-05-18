@@ -13,7 +13,7 @@ async function fetchUserDemographics(user_id) {
 }
 
 function showModalIfNeeded(userDemographics) {
-  console.log(userDemographics);
+  console.log("123",userDemographics);
   // Check if any of the required userDemographics fields are null
   if (userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
     // If any of the demographic data is null, show the modal
@@ -75,7 +75,7 @@ async function updateUserDemographics(user_id, age, gender, location, brands) {
   };
 
   try {
-      const response = await fetch(`http://localhost:8000/demographics/update/${user_id}/`, {
+      const response = await fetch(`http://localhost:8000/user-demo-data/demographics/update/${user_id}/`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json',
