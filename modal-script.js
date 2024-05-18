@@ -70,7 +70,7 @@ document.getElementById('submit').addEventListener('click', async function() {
   const location = document.getElementById('location').value;
 
   // Retrieve the user_id from the cookie
-  const user_id = getCookie('user_id');
+  const user_id = '<?php echo $user_id; ?>';
 
   // Collect selected brands
   const brands = [];
@@ -79,37 +79,36 @@ document.getElementById('submit').addEventListener('click', async function() {
   });
 
   if (user_id) {
-      // Assuming you have a separate endpoint or logic to handle brands
-      await updateUserDemographics(user_id, age, gender, location, brands);
+    await updateUserDemographics(user_id, age, gender, location, brands);
   } else {
-      console.error('No user_id found in cookies. Cannot update user demographics.');
+    console.error('No user_id found in cookies. Cannot update user demographics.');
   }
 });
 
 async function updateUserDemographics(user_id, age, gender, location, brands) {
   const userUpdateData = {
-      user_id,
-      age,
-      gender,
-      location,
-      brands  // Include the brands array in the data sent to the backend
+    user_id,
+    age,
+    gender,
+    location,
+    brands  // Include the brands array in the data sent to the backend
   };
 
   try {
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/user-demo-data/demographics/update/${user_id}/`, {
-          method: 'PUT',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userUpdateData)
-      });
+    const response = await fetch(`http://127.0.0.1:8000/api/v1/user-demo-data/demographics/update/${user_id}/`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userUpdateData)
+    });
 
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      console.log('Update successful:', data);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    console.log('Update successful:', data);
   } catch (error) {
-      console.error('There has been a problem with your update operation:', error);
+    console.error('There has been a problem with your update operation:', error);
   }
 }
