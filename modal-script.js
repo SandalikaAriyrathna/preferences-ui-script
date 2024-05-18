@@ -1,6 +1,6 @@
 async function fetchUserDemographics(user_id) {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/user-demo-data/demographics/${user_id}`);
+    const response = await fetch(`http://localhost:8000/api/v1/user-demo-data/demographics/${user_id}/`);
     console.log('fetchUserDemographics response:', response);
 
     if (!response.ok) {
