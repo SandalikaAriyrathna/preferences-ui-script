@@ -1,6 +1,6 @@
 async function fetchUserDemographics(user_id) {
   try {
-    const response = await fetch(`http://localhost:8000/demographics/${user_id}`);
+    const response = await fetch(`http://localhost:8000/user-demo-data/demographics/${user_id}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
