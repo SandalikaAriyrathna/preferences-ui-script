@@ -1,21 +1,26 @@
 async function fetchUserDemographics(user_id) {
   try {
     const response = await fetch(`http://localhost:8000/user-demo-data/demographics/${user_id}`);
+    console.log('fetchUserDemographics response:', response);
+
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error(`Network response was not ok: ${response.statusText}`);
     }
+
     const data = await response.json();
+    console.log('fetchUserDemographics data:', data);
+
     return data;
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
-    return null; // Return null in case of an error
+    return null;
   }
 }
 
 function showModalIfNeeded(userDemographics) {
-  console.log("123",userDemographics);
+  console.log('showModalIfNeeded userDemographics:', userDemographics);
   // Check if any of the required userDemographics fields are null
-  if (userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
+  if (!userDemographics || userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
     // If any of the demographic data is null, show the modal
     document.getElementById('modal').style.display = "block";
   }
