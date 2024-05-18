@@ -21,11 +21,10 @@ async function fetchUserDemographics(user_id) {
 }
 
 
+
 function showModalIfNeeded(userDemographics) {
   console.log('showModalIfNeeded userDemographics:', userDemographics);
-  // Check if any of the required userDemographics fields are null
   if (!userDemographics || userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
-    // If any of the demographic data is null, show the modal
     document.getElementById('modal').style.display = "block";
   }
 }
@@ -36,6 +35,19 @@ function getCookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+
+window.onload = async function() {
+  const user_id = '<?php echo $user_id; ?>';
+  console.log('user_id', user_id);
+
+  if (user_id) {
+    const userDemographics = await fetchUserDemographics(user_id);
+    console.log('userDemographics', userDemographics);
+    showModalIfNeeded(userDemographics);
+  } else {
+    console.error('No user_id found in cookies. User might not be logged in.');
+  }
+};
 
 // Add event listener for the 'openModalButton'
 document.getElementById("openModalButton").onclick = function() {
