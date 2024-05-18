@@ -28,20 +28,6 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-window.onload = async function() {
-  // Retrieve the user_id from the cookie
-  const user_id = getCookie('user_id');
-  console.log(user_id);
-
-  if (user_id) {
-    const userDemographics = await fetchUserDemographics(user_id);
-    showModalIfNeeded(userDemographics);
-  } else {
-    console.error('No user_id found in cookies. User might not be logged in.');
-    // Handle case where user is not logged in or user_id is not stored in cookies
-  }
-};
-
 // Add event listener for the 'openModalButton'
 document.getElementById("openModalButton").onclick = function() {
   document.getElementById('modal').style.display = "block";
