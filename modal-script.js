@@ -36,19 +36,6 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-window.onload = async function() {
-  const user_id = '<?php echo $user_id; ?>';
-  console.log('user_id', user_id);
-
-  if (user_id) {
-    const userDemographics = await fetchUserDemographics(user_id);
-    console.log('userDemographics', userDemographics);
-    showModalIfNeeded(userDemographics);
-  } else {
-    console.error('No user_id found in cookies. User might not be logged in.');
-  }
-};
-
 // Add event listener for the 'openModalButton'
 document.getElementById("openModalButton").onclick = function() {
   document.getElementById('modal').style.display = "block";
@@ -62,30 +49,7 @@ document.querySelectorAll('.brand').forEach(function(brand) {
   });
 });
 
-document.getElementById('demographicForm').addEventListener('submit', async function(event) {
-  event.preventDefault(); // Prevent the form from submitting the traditional way
 
-  const birthDate = new Date(document.getElementById('age').value);
-  const today = new Date();
-  const age = today.getFullYear() - birthDate.getFullYear();
-  const gender = document.getElementById('gender').value;
-  const location = document.getElementById('location').value;
-
-  // Retrieve the user_id from the cookie
-  const user_id = getCookie('user_id');
-
-  // Collect selected brands
-  const brands = [];
-  document.querySelectorAll('input[name="brands"]:checked').forEach((checkbox) => {
-    brands.push(checkbox.value);
-  });
-
-  if (user_id) {
-    await updateUserDemographics(user_id, age, gender, location, brands);
-  } else {
-    console.error('No user_id found in cookies. Cannot update user demographics.');
-  }
-});
 
 async function updateUserDemographics(user_id, age, gender, location, brands) {
   const userUpdateData = {
