@@ -1,21 +1,25 @@
 async function fetchUserDemographics(user_id) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/v1/user-demo-data/demographics/${user_id}/`);
+    const response = await fetch(`http://localhost:8000/api/v1/user-demo-data/demographics/${user_id}`);
     console.log('fetchUserDemographics response:', response);
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const text = await response.text(); // Get the raw response text
+    console.log('fetchUserDemographics raw response text:', text);
+
+    const data = JSON.parse(text); // Parse the raw text into JSON
     console.log('fetchUserDemographics data:', data);
 
     return data;
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
-    return null;
+    return null; // Return null in case of an error
   }
 }
+
 
 function showModalIfNeeded(userDemographics) {
   console.log('showModalIfNeeded userDemographics:', userDemographics);
