@@ -73,7 +73,8 @@ async function updateUserDemographics(user_id, age, gender, location, brands) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('Update successful:', data);
+    console.log('updateUserDemographics data:', data);
+    return data;
   } catch (error) {
     console.error('There has been a problem with your update operation:', error);
   }
