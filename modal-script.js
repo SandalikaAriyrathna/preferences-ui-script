@@ -23,7 +23,7 @@ async function fetchUserDemographics(user_id) {
 
 
 function showModalIfNeeded(userDemographics) {
-  console.log('showModalIfNeeded userDemographics:', userDemographics);
+  console.log('showModalIfNeeded userDemographic:', userDemographics);
   if (!userDemographics || userDemographics.age === null || userDemographics.gender === null || userDemographics.location === null) {
     document.getElementById('modal').style.display = "block";
   }
