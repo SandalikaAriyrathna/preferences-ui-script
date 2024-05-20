@@ -45,7 +45,7 @@ document.getElementById("openModalButton").onclick = function() {
 document.querySelectorAll('.brand').forEach(function(brand) {
   brand.addEventListener('click', function() {
     document.getElementById('modal').style.display = "none";
-    console.log("Brand selected: " + this.alt);
+    console.log("Brand selecte: " + this.alt);
   });
 });
 
@@ -73,7 +73,7 @@ async function updateUserDemographics(user_id, age, gender, location, brands) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log('updateUserDemographics1 data:', data);
+    console.log('updateUserDemographic data:', data);
     return data;
   } catch (error) {
     console.error('There has been a problem with your update operation:', error);
